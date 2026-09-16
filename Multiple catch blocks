@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("Enter first number: ");
+            int a = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter second number: ");
+            int b = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Result = " + (a / b));
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Error: Enter numeric values only.");
+        }
+        catch (DivideByZeroException)
+        {
+            Console.WriteLine("Error: Cannot divide by zero.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+}
