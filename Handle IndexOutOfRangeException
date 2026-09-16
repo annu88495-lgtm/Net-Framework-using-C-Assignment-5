@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        try
+        {
+            Console.Write("Enter an index (0-4): ");
+            int index = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Value = " + numbers[index]);
+        }
+        catch (IndexOutOfRangeException)
+        {
+            Console.WriteLine("Error: Index is outside the array range.");
+        }
+    }
+}
