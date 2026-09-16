@@ -1,0 +1,43 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        string filePath = "student.txt";
+
+        try
+        {
+            Console.Write("Enter student name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Enter student roll number: ");
+            string rollNo = Console.ReadLine();
+
+            Console.Write("Enter student course: ");
+            string course = Console.ReadLine();
+
+            
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Student Name: " + name);
+                writer.WriteLine("Roll Number: " + rollNo);
+                writer.WriteLine("Course: " + course);
+            }
+
+            Console.WriteLine("\nStudent details:");
+
+ 
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string data = reader.ReadToEnd();
+                Console.WriteLine(data);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+}
